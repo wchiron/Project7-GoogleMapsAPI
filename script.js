@@ -218,7 +218,6 @@ function initMap() { // google maps init function called by the api script in th
     restaurantManager.sendListToHTML(listRestaurants); //show the list on the right of the screen when load
 }
 
-// class to handle the restaurant markers
 class MyMap { 
     constructor(map) {
         this.map = map;
@@ -295,7 +294,7 @@ class MyMap {
             radius: '500',
             type: ['restaurant']
         };
-        listRestaurants = [];
+        listRestaurants = []; // clear the result list everytime the center changes to only show restaurant of the newest search
         var service = new google.maps.places.PlacesService(this.map);
         service.nearbySearch(request, this.nearbySearchCallback.bind(this)); // nearby search to get a list of restaurants with place id, using bind(this) to keep the this in the nearbySearchCallback, otherwise "this" is undefined.
     }

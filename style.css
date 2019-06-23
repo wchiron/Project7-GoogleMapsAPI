@@ -1,0 +1,96 @@
+.row #box-showRestaurantDetails #showRestaurantDetails .showRating, .row #box-showRestaurantDetails #showRestaurantDetails .showAdress, .row #box-showRestaurantDetails #showRestaurantDetails .showComment, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showRating, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showAdress, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showComment {
+  font-size: 13px;
+  margin-bottom: 5px; }
+
+.row .modal textarea, .container-fluid .modal textarea, #addNewPlace textarea {
+  width: 100%;
+  height: 150px;
+  border-style: unset;
+  border-radius: .25rem; }
+
+.siteName {
+  color: #2a2e36;
+  text-align: center;
+  border-bottom: 1px #c6d4df solid;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: "Raleway", sans-serif; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.row, .container-fluid {
+  height: 100%;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px; }
+  .row .stars-outer, .container-fluid .stars-outer {
+    position: relative;
+    display: inline-block;
+    font-size: 0.7rem; }
+  .row .stars-inner, .container-fluid .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0; }
+  .row .stars-outer::before, .container-fluid .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ccc; }
+  .row .stars-inner::before, .container-fluid .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #e7711b; }
+  .row #map, .container-fluid #map {
+    height: 100%;
+    width: 100%;
+    margin-top: -8px;
+    margin-left: -15px; }
+  .row #list-wrap, .container-fluid #list-wrap {
+    height: 946px;
+    overflow: scroll;
+    margin-left: 0px; }
+    .row #list-wrap .listRestaurant p, .container-fluid #list-wrap .listRestaurant p {
+      border-bottom: 0.5px solid #c6d4df;
+      font-size: 13px; }
+    .row #list-wrap .listRestaurant .number-rating, .container-fluid #list-wrap .listRestaurant .number-rating {
+      font-size: 13px;
+      margin-left: 5px; }
+    .row #list-wrap .listRestaurant :hover, .container-fluid #list-wrap .listRestaurant :hover {
+      cursor: pointer; }
+    .row #list-wrap #sort-option, .container-fluid #list-wrap #sort-option {
+      margin-bottom: 10px; }
+      .row #list-wrap #sort-option #sort, .container-fluid #list-wrap #sort-option #sort {
+        text-align: center;
+        padding: 10px 0; }
+  .row #box-showRestaurantDetails .btn, .container-fluid #box-showRestaurantDetails .btn {
+    display: inline-block;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    position: static; }
+  .row #box-showRestaurantDetails #returnToList, .container-fluid #box-showRestaurantDetails #returnToList {
+    margin-right: 75px; }
+  .row #box-showRestaurantDetails #showRestaurantDetails .showName, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showName {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px; }
+  .row .modal .modal-title, .container-fluid .modal .modal-title {
+    margin: auto;
+    margin-left: 165px; }
+
+#addNewPlace #groupInputAdress {
+  margin-top: 10px; }
+#addNewPlace #labelRatingOptions {
+  margin-right: 20px; }
+#addNewPlace textarea {
+  margin-top: 10px; }
+
+/*# sourceMappingURL=style.css.map */

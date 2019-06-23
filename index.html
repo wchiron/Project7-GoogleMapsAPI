@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--page setup-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Avis de restaurant</title>
+<!--  bootstrap and css setup -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <!-- <script src="https://kit.fontawesome.com/8b1a29674e.js"></script> -->
+  </head>
+
+  <body>
+    <header>
+        <h1 class="siteName">RestoHit</h1>
+    </header>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+
+        <div id="map" class="col-xl-9 col-lg-8 col-sm-12"></div>
+        <div id="list-wrap" class="col-xl-3 col-lg-4 col-sm-12">
+            <!-- <div class="boxRestaurant"> a list of restaurants
+            </div> -->
+            <div id="sort-option" class="sort" style="display: block;">
+                <label for = "sort">Min</label>
+                <select name="sort" id="sortMinStars">
+                    <option value="0">Tout</option>
+                    <option value="1">1 étoile</option>
+                    <option value="2">2 étoiles</option>
+                    <option value="3">3 étoiles</option>
+                    <option value="4">4 étoiles</option>
+                    <option value="5">5 étoiles</option>
+                </select>
+
+                <label for = "sort">Max</label>
+                <select name="sort" id="sortMaxStars">
+                    <!-- <option value="maxAllStars" disabled="disabled">Tout</option> -->
+                    <option value="1" disabled="disabled">1 étoile</option>
+                    <option value="2" disabled="disabled">2 étoiles</option>
+                    <option value="3" disabled="disabled">3 étoiles</option>
+                    <option value="4" disabled="disabled">4 étoiles</option>
+                    <option value="5" disabled="disabled" selected>5 étoiles</option>
+                </select>
+
+                 <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cet zone</button>
+            </div>
+        </div>
+        <div id="box-showRestaurantDetails" class="col-xl-3 col-lg-4 col-sm-12">
+            <button type="button" class="btn btn-light btn-sm" id="returnToList"><i class="fas fa-arrow-left"></i> Retourner</button>
+            <button type="button" class="btn btn-light btn-sm" id="addNewReview" data-toggle="modal" data-target="#form-addComment"><i class="fas fa-plus"></i> Ajouter un avis</button>
+            <div id="showRestaurantDetails">
+                <div class="streetView"></div>
+                <div class="showName"></div>
+                <div class="showStar">
+                        <span class="showRating"></span>
+                </div>
+                <!-- <div class="showRating"></div> -->
+                <div class="showAdress"></div>
+                <div class="showComment"></div>
+            </div>
+        </div>
+        <div class="modal fade" id="form-addComment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form action="#" id="form-addNewComment">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="title-addComment">Ajouter un avis</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <label for="your-rating">Donnez votre avis afin d'aider les autres utilisateurs</label>
+                            <select name="your-rating" id="your-rating" required>
+                                <option disabled selected value>Note</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <textarea name="your-review" id="your-review" placeholder="Partager les détails de votre expérience à cet endroit" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <span class="errorMessage">Both rating and comment must be filled</span> -->
+                            <button type="button" class="btn btn-light" id="cancelAddingComment" data-dismiss="modal">Fermer</button>
+                            <button class="btn btn-primary"  type="submit" value="Ajouter" id="submitNewComment" >Ajouter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addNewPlace" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewPlaceTitle">Ajouter un nouveau endroit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label for="validationCustom01">Nom de cet endroit</label>
+                <input type="text" class="form-control" id="inputNewName" placeholder="Nom de cet endroit"  required>
+                <div class="form-row" id="groupInputAdress">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationCustom03">Adresse</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="L'adresse de cet endroit" required>
+                        <div class="invalid-feedback">
+                            Veuillez ajouter une adresse.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom04">Ville</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="Ville" required>
+                        <div class="invalid-feedback">
+                                Veuillez ajouter une ville.
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationCustom05">Code postale</label>
+                        <input type="text" class="form-control" id="inputZipCode" placeholder="CP" required>
+                        <div class="invalid-feedback">
+                                Veuillez ajouter le code postale.
+                        </div>
+                    </div>
+                </div> 
+                <div class="form-row">
+                    <label for="labelRatingOptions" id="labelRatingOptions">Donnez votre avis </label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                        <label class="form-check-label" for="inlineRadio1">1</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                        <label class="form-check-label" for="inlineRadio2">2</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                        <label class="form-check-label" for="inlineRadio2">3</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                        <label class="form-check-label" for="inlineRadio2">4</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+                        <label class="form-check-label" for="inlineRadio2">5</label>
+                    </div>                
+                </div> 
+                <textarea name="reviewForNewPlace" id="reviewForNewPlace" placeholder="Partager les détails de votre expérience à cet endroit" required></textarea>   
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="closeAddingPlace" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-primary" id="confirmAddingPlace">Publier</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- script setup jQuery before bootstrap -->
+    <script 
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <!-- <script src="script.js"></script>  -->
+    <script type="text/javascript" src="listRestaurants.js"></script>
+    <script src="script.js"></script> 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A&callback=initMap&libraries=places">
+    </script> 
+    <!-- <script src="https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A"></script> -->
+    <script src="https://kit.fontawesome.com/8b1a29674e.js"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A&libraries=places"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+$bgc: #f5f5f5;
+$font-color: #2a2e36;
+$main-font: 'Raleway', sans-serif;
+$border-color: #c6d4df;
+$rating-color: #e7711b;
+$googleMaps-color : #4285F4;
+%style-shared {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+%textarea-style {
+    width: 100%;
+    height: 150px;
+    border-style: unset;
+    border-radius: .25rem;
+}
+
+.siteName {
+    color: $font-color;
+    text-align: center;
+    border-bottom: 1px $border-color solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: $main-font;
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.row, .container-fluid {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    // #searchAreaButton {
+    //     position: absolute;
+    //     top: 0%;
+    //     left: 50%;
+    //     background: white;
+    //     padding: 13px 16px;
+    //     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.3);
+    //     // color: #4285F4;
+    //     cursor: pointer;
+    //     font-size: 13px;
+    //     font-weight: 500;
+    //     display: none;
+    //     text-transform: uppercase;
+    // }
+
+    .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs
+        position: relative;
+        display: inline-block;
+        font-size: 0.7rem;
+    }
+    
+    .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    }
+    
+    .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ccc;
+    }
+    
+    .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: $rating-color;
+    }
+
+    // margin-left: -40px;
+    #map {
+        height: 100%;
+        width: 100%;
+        margin-top: -8px;
+        margin-left: -15px;
+    }
+
+    #list-wrap {
+        height: 100%;
+        overflow: scroll;
+        margin-left: 0px;
+
+        // List of restaurants
+        .listRestaurant {
+            p {
+                border-bottom: 0.5px solid $border-color;
+                font-size: 13px;
+                // margin-bottom: 5px;
+            }
+            .number-rating {
+                font-size: 13px;
+                margin-left: 5px;
+            }
+        }
+        .listRestaurant :hover{
+            cursor: pointer;
+        }
+
+        // Sort option
+        #sort-option {
+            margin-bottom: 10px;
+            position: absolute;
+
+            #sort {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
+    }
+    // restaurant details when clicked
+    #box-showRestaurantDetails {
+        .btn {
+            // border-bottom: 0.5px solid $border-color;
+            display: inline-block;
+            padding-bottom: 1px;
+            padding-top: 1px;
+            font-size: 13px;
+            margin-bottom: 10px;
+            position: static;
+        }
+        // .fas {
+        //     size: 2;
+        // }
+        #returnToList {
+            margin-right: 62px;
+        }
+        #showRestaurantDetails {
+            .showName {
+                font-weight: bold;
+                font-size: 15px;
+                margin-bottom: 5px;
+            }
+            .showRating, .showAdress, .showComment {
+                @extend %style-shared;
+            }
+        }
+    }
+
+    .modal {
+        textarea {
+            @extend %textarea-style;
+        }
+        .modal-title {
+            margin: auto;
+            margin-left: 165px;
+        }
+    }
+}
+
+//modal for adding new places
+#addNewPlace {
+    #groupInputAdress {
+        margin-top: 10px;
+    }
+    #labelRatingOptions {
+        margin-right: 20px;
+    }
+    textarea {
+        margin-top: 10px;
+        @extend %textarea-style;
+    }
+}

@@ -6,7 +6,7 @@ $("#addNewPlace").hide();
 
 var map, infoWindow, newMap, restaurantManager;
 
-class RestaurantManager {
+class RestaurantManager { // showing restaurant content related
     constructor() { // things to reuse, 
         this.totalStar = 5; // to use when calculate average rating
     }
@@ -19,15 +19,20 @@ class RestaurantManager {
             totalRating += ratings.stars;
         });
     
-        averageRating = totalRating/restaurant.ratings.length; // get the average rating
+        if (restaurant.ratings.length === 0) {
+            averageRating = 0; // put the rating to 0 in case the restaurant currently has no rating
+        } else {
+            averageRating = totalRating/restaurant.ratings.length; // get the average rating
+        }
+       
         var roundedAverageRating = Math.round(averageRating * 10) / 10; // round the average rating to 1 decimal
         return roundedAverageRating;
     }
 
     sendListToHTML(restaurants) {
         $(".listRestaurant").remove(); // not emptying the list-wrap to keep the sort option
-        newMap.clearMarkers(); // clear all the markers before updating the markers to avoid adding multiple for one location
-        restaurants.forEach((restaurant) => { //using forEach instead of a for loop to have a distinct closure for every iteration, meaning get the right i every time 
+        newMap.clearMarkers(); // clear all the markers before updating the markers to avoid adding multiple for one location, since sendListToHTML is called multiple times
+        restaurants.forEach((restaurant) => { //using forEach instead of a for loop to have a distinct closure for every iteration, meaning get the right i every time \. Use => instead of function to be able to pass the this value, since calculateAverageRating function is called within this function.
             var averRatingToShow = this.calculateAverageRating(restaurant); 
             var starPercentage = Math.round((averRatingToShow/this.totalStar) * 100);// round the average number and get percentage
     
@@ -42,13 +47,15 @@ class RestaurantManager {
                 <p>${restaurant.address}</p>
             </div>
             `);
+
+            // if (averRatingToShow)
             $("#listOfRestaurants").append(listRestaurantHTML); // send the var which contains html tags to the page
     
             //add event handler on the listRestaurant div to show restaurant details when click
             listRestaurantHTML.click(() => { 
                 this.showRestaurantDetailsWhenClicked(restaurant);
             });
-                // loop through listRestaurant to pass markers
+                // add marker for each restaurant
             newMap.addMarker(restaurant);
         })
     }
@@ -333,7 +340,7 @@ class MyMap {
                 // createMarker(place);
                 var reviews = result.reviews || []; // sometime a restaurant doesn't have comment, use || [] technic to add an empty array in this case to avoid forEach crashes
                 reviews.forEach(function(review) {
-                    var resultDetailRating = review.rating;
+                    var resultDetailRating = review.rating || 0;
                     var resultDetailComment = review.text;
         
                     integrateGoogleRestaurants.ratings.push({

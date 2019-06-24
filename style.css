@@ -71,8 +71,7 @@ html, body {
     overflow: scroll;
     margin-left: 0px; }
     .row #list-wrap #sort-option, .container-fluid #list-wrap #sort-option {
-      margin-bottom: 10px;
-      position: absolute; }
+      margin-bottom: 10px; }
       .row #list-wrap #sort-option #sort, .container-fluid #list-wrap #sort-option #sort {
         text-align: center;
         padding: 10px 0; }
@@ -84,15 +83,16 @@ html, body {
       margin-left: 5px; }
     .row #list-wrap .listRestaurant :hover, .container-fluid #list-wrap .listRestaurant :hover {
       cursor: pointer; }
-  .row #box-showRestaurantDetails .btn, .container-fluid #box-showRestaurantDetails .btn {
-    display: inline-block;
-    padding-bottom: 1px;
-    padding-top: 1px;
-    font-size: 13px;
-    margin-bottom: 10px;
-    position: static; }
-  .row #box-showRestaurantDetails #returnToList, .container-fluid #box-showRestaurantDetails #returnToList {
-    margin-right: 62px; }
+  .row #box-showRestaurantDetails .buttonReturnAndNewReview, .container-fluid #box-showRestaurantDetails .buttonReturnAndNewReview {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; }
+    .row #box-showRestaurantDetails .buttonReturnAndNewReview .btn, .container-fluid #box-showRestaurantDetails .buttonReturnAndNewReview .btn {
+      padding-bottom: 1px;
+      padding-top: 1px;
+      font-size: 13px;
+      margin-bottom: 10px;
+      position: static; }
   .row #box-showRestaurantDetails #showRestaurantDetails .showName, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showName {
     font-weight: bold;
     font-size: 15px;

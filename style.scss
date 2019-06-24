@@ -4,7 +4,7 @@ $main-font: 'Raleway', sans-serif;
 $border-color: #c6d4df;
 $rating-color: #e7711b;
 $googleMaps-color : #4285F4;
-%style-shared {
+%style-shared {  // to show rating, address and comments
     font-size: 13px;
     margin-bottom: 5px;
 }
@@ -15,13 +15,22 @@ $googleMaps-color : #4285F4;
     border-radius: .25rem;
 }
 
-.siteName {
-    color: $font-color;
-    text-align: center;
-    border-bottom: 1px $border-color solid;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: $main-font;
+// .siteName
+header {
+    .siteName {
+        color: #6b717f;
+        // display : flex;
+        text-align: center;
+        border-bottom: 1px $border-color solid;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-family: $main-font;
+        // background-color: $bgc;
+    }
+    span {
+        color: $rating-color;
+        font-weight: bolder;
+    }
 }
 
 html,body {
@@ -37,20 +46,18 @@ html,body {
     margin-left: 0px;
     margin-right: 0px;
 
-    // #searchAreaButton {
-    //     position: absolute;
-    //     top: 0%;
-    //     left: 50%;
-    //     background: white;
-    //     padding: 13px 16px;
-    //     box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.3);
-    //     // color: #4285F4;
-    //     cursor: pointer;
-    //     font-size: 13px;
-    //     font-weight: 500;
-    //     display: none;
-    //     text-transform: uppercase;
-    // }
+    #floating-panel {
+        position: absolute;
+        // top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: $bgc;
+        padding: 5px;
+        text-align: center;
+        font-family: $main-font;
+        line-height: 30px;
+        padding-left: 10px;
+    }
 
     .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs
         position: relative;
@@ -93,6 +100,18 @@ html,body {
         height: 100%;
         overflow: scroll;
         margin-left: 0px;
+        // display: block;
+
+        // restaurant filter
+        #sort-option {
+            margin-bottom: 10px;
+            position: absolute;
+
+            #sort {
+                text-align: center;
+                padding: 10px 0;
+            }
+        }
 
         // List of restaurants
         .listRestaurant {
@@ -109,22 +128,10 @@ html,body {
         .listRestaurant :hover{
             cursor: pointer;
         }
-
-        // Sort option
-        #sort-option {
-            margin-bottom: 10px;
-            position: absolute;
-
-            #sort {
-                text-align: center;
-                padding: 10px 0;
-            }
-        }
     }
     // restaurant details when clicked
     #box-showRestaurantDetails {
-        .btn {
-            // border-bottom: 0.5px solid $border-color;
+        .btn { // two buttons, return to previous and add an new rating
             display: inline-block;
             padding-bottom: 1px;
             padding-top: 1px;
@@ -132,9 +139,7 @@ html,body {
             margin-bottom: 10px;
             position: static;
         }
-        // .fas {
-        //     size: 2;
-        // }
+
         #returnToList {
             margin-right: 62px;
         }
@@ -150,7 +155,8 @@ html,body {
         }
     }
 
-    .modal {
+    // modal for adding new rating and comment to an existing restaurant
+    .modal { 
         textarea {
             @extend %textarea-style;
         }

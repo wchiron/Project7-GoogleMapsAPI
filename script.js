@@ -42,7 +42,7 @@ class RestaurantManager {
                 <p>${restaurant.address}</p>
             </div>
             `);
-            $("#list-wrap").append(listRestaurantHTML); // send the var which contains html tags to the page
+            $("#listOfRestaurants").append(listRestaurantHTML); // send the var which contains html tags to the page
     
             //add event handler on the listRestaurant div to show restaurant details when click
             listRestaurantHTML.click(() => { 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="logo-icon.png" type="image/icon"/>
     <title>Avis de restaurant</title>
 <!--  bootstrap and css setup -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -17,17 +17,21 @@
 
   <body>
     <header>
-        <h1 class="siteName">RestoHit</h1>
+        <h1 class="siteName"><span>Resto</span>Hit</h1>
+        <!-- <nav class="navbar navbar-light bg-light siteName">
+            <span class="navbar-brand mb-0 h1">RestoHit</span>
+        </nav> -->
     </header>
 
 <div class="container-fluid">
     <div class="row">
-        <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+        <div id="floating-panel">
+            <!-- <button type="button" class="btn btn-light" id="searchThisArea">Regarder dans cet endroit</button> -->
+            <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cet zone</button>
+        </div>
 
         <div id="map" class="col-xl-9 col-lg-8 col-sm-12"></div>
         <div id="list-wrap" class="col-xl-3 col-lg-4 col-sm-12">
-            <!-- <div class="boxRestaurant"> a list of restaurants
-            </div> -->
             <div id="sort-option" class="sort" style="display: block;">
                 <label for = "sort">Min</label>
                 <select name="sort" id="sortMinStars">
@@ -48,8 +52,10 @@
                     <option value="4" disabled="disabled">4 étoiles</option>
                     <option value="5" disabled="disabled" selected>5 étoiles</option>
                 </select>
-
-                 <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cet zone</button>
+                 <!-- <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cet zone</button> -->
+            </div>
+            <div id="listOfRestaurants">
+                
             </div>
         </div>
         <div id="box-showRestaurantDetails" class="col-xl-3 col-lg-4 col-sm-12">

@@ -1,6 +1,7 @@
 "use strict";
 var sortListByMinStars = '';
 var sortListByMaxStars = 5;
+// var emptyListRestaurants = true;
 $("#box-showRestaurantDetails").hide(); 
 $("#addNewPlace").hide(); 
 
@@ -20,7 +21,7 @@ class RestaurantManager { // showing restaurant content related
         });
     
         if (restaurant.ratings.length === 0) {
-            averageRating = 0; // put the rating to 0 in case the restaurant currently has no rating
+            averageRating = 0; // put the rating to 0 in case the restaurant currently has no rating to avoid showing NaN
         } else {
             averageRating = totalRating/restaurant.ratings.length; // get the average rating
         }
@@ -47,6 +48,10 @@ class RestaurantManager { // showing restaurant content related
                 <p>${restaurant.address}</p>
             </div>
             `);
+
+            // if (emptyListRestaurants === true) {
+            //     listRestaurants = [];
+            // }
 
             $("#listOfRestaurants").append(listRestaurantHTML); // send the var which contains html tags to the page
     
@@ -271,6 +276,24 @@ class MyMap {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
+
+                // check the user's city name, if use is in Paris, keep the example restaurants
+                // var geocoder = new google.maps.Geocoder(); 
+                // var latLng = pos; // get the latLng where right-clicked
+        
+                // geocoder.geocode({'location': latLng}, function(results, status) {  // use the latlng from the click to get address
+                //     if (status === 'OK') {
+                //         var checkCityName = results[0].address_components[2].long_name;
+                //         console.log(checkCityName);
+                //         debugger;
+                //         if (checkCityName === "Paris") {
+                //             emptyListRestaurants = false;
+                //         } 
+                //     } else {
+                //         alert('Geocode was not successful for the following reason: ' + status);
+                //     }
+                // });
+
                 var marker = new google.maps.Marker({
                     position: {lat:pos.lat, lng:pos.lng},
                     map: this.map,

@@ -32,8 +32,8 @@ class RestaurantManager { // showing restaurant content related
     sendListToHTML(restaurants) {
         $(".listRestaurant").remove(); // not emptying the list-wrap to keep the sort option
         newMap.clearMarkers(); // clear all the markers before updating the markers to avoid adding multiple for one location, since sendListToHTML is called multiple times
-        restaurants.forEach((restaurant) => { //using forEach instead of a for loop to have a distinct closure for every iteration, meaning get the right i every time \. Use => instead of function to be able to pass the this value, since calculateAverageRating function is called within this function.
-            var averRatingToShow = this.calculateAverageRating(restaurant); 
+        restaurants.forEach((restaurant) => { //using forEach instead of a for loop to have a distinct closure for every iteration, meaning get the right i every time. Use => instead of function to be able to pass the "this" value, since calculateAverageRating function is called inside this function.
+            var averRatingToShow = this.calculateAverageRating(restaurant);  // could use this. here thanks to the => in line 35
             var starPercentage = Math.round((averRatingToShow/this.totalStar) * 100);// round the average number and get percentage
     
             //create html tags in one var to make it more readable
@@ -48,15 +48,14 @@ class RestaurantManager { // showing restaurant content related
             </div>
             `);
 
-            // if (averRatingToShow)
             $("#listOfRestaurants").append(listRestaurantHTML); // send the var which contains html tags to the page
     
             //add event handler on the listRestaurant div to show restaurant details when click
             listRestaurantHTML.click(() => { 
                 this.showRestaurantDetailsWhenClicked(restaurant);
             });
-                // add marker for each restaurant
-            newMap.addMarker(restaurant);
+           
+            newMap.addMarker(restaurant);  // add marker for each restaurant
         })
     }
 
@@ -127,8 +126,6 @@ class RestaurantManager { // showing restaurant content related
         })
         return listResultAccordingOption; // return the list which contains the restaurants which fit the option
     }
-    
-
 }
 
 restaurantManager = new RestaurantManager();
@@ -139,7 +136,7 @@ function initMap() { // google maps init function called by the api script in th
         zoom: 14
     });
     infoWindow = new google.maps.InfoWindow;
-    newMap = new MyMap(map); // use the class to creat an objet to use
+    newMap = new MyMap(map); // use the class to creat an objet newMap to use
 
     // auto geolocation, get user's current location.
     newMap.focusOnUserPosition();

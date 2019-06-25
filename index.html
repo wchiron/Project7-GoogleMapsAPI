@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="logo-icon.png" type="image/icon"/>
+    <link rel="icon" href="logo-nbg.png" type="image/icon"/>
     <title>Avis de restaurant</title>
 <!--  bootstrap and css setup -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -17,18 +17,20 @@
 
   <body>
     <header>
+        <!-- <div class="logo"> -->
+            <img src="logo-nbg.png">
+        <!-- </div> -->
         <h1 class="siteName"><span>Resto</span>Hit</h1>
-        <!-- <nav class="navbar navbar-light bg-light siteName">
-            <span class="navbar-brand mb-0 h1">RestoHit</span>
-        </nav> -->
     </header>
 
 <div class="container-fluid">
     <div class="row">
         <div id="floating-panel">
-            <!-- <button type="button" class="btn btn-light" id="searchThisArea">Regarder dans cet endroit</button> -->
-            <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cette zone</button>
+            <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Rechercher dans cette zone</button>
         </div>
+        <!-- <div id="pac-container">
+            <input id="pac-input" type="text" placeholder="Chercher par restaurant">
+        </div> -->
 
         <div id="map" class="col-xl-9 col-lg-8 col-sm-12"></div>
         <div id="list-wrap" class="col-xl-3 col-lg-4 col-sm-12">
@@ -52,7 +54,6 @@
                     <option value="4" disabled="disabled">4 étoiles</option>
                     <option value="5" disabled="disabled" selected>5 étoiles</option>
                 </select>
-                 <!-- <button type="button" class="btn btn-outline-primary btn-sm" id="searchAreaButton">Regarder dans cet zone</button> -->
             </div>
             <div id="listOfRestaurants">
                 
@@ -69,7 +70,6 @@
                 <div class="showStar">
                         <span class="showRating"></span>
                 </div>
-                <!-- <div class="showRating"></div> -->
                 <div class="showAdress"></div>
                 <div class="showComment"></div>
             </div>
@@ -97,7 +97,6 @@
                             <textarea name="your-review" id="your-review" placeholder="Partager les détails de votre expérience à cet endroit" required></textarea>
                         </div>
                         <div class="modal-footer">
-                            <!-- <span class="errorMessage">Both rating and comment must be filled</span> -->
                             <button type="button" class="btn btn-light" id="cancelAddingComment" data-dismiss="modal">Fermer</button>
                             <button class="btn btn-primary"  type="submit" value="Ajouter" id="submitNewComment" >Ajouter</button>
                         </div>
@@ -191,7 +190,5 @@
     </script> 
     <!-- <script src="https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A"></script> -->
     <script src="https://kit.fontawesome.com/8b1a29674e.js"></script>
-    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A&libraries=places"></script> -->
-
 </body>
 </html>

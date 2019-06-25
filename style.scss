@@ -17,11 +17,12 @@ $googleMaps-color : #4285F4;
 
 // .siteName
 header {
+    display: flex;
+    justify-content: center;
     .siteName {
         color: #6b717f;
-        // display : flex;
         text-align: center;
-        border-bottom: 1px $border-color solid;
+        // border-bottom: 1px $border-color solid;
         padding-bottom: 10px;
         padding-top: 10px;
         font-family: $main-font;
@@ -30,6 +31,11 @@ header {
     span {
         color: $rating-color;
         font-weight: bolder;
+    }
+    img{
+        height: 69px;
+
+
     }
 }
 
@@ -45,11 +51,12 @@ html,body {
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;
+    // border-top: 1px $border-color solid;
 
     #floating-panel { // search this area button
         position: absolute;
         // top: 10px;
-        left: 25%;
+        left: 31%;
         z-index: 5;
         background-color: $bgc;
         padding: 5px;
@@ -58,8 +65,21 @@ html,body {
         line-height: 30px;
         padding-left: 10px;
     }
+    
+    // #pac-input {
+    //     position: absolute;
+    //     // top: 10px;
+    //     left: 50%;
+    //     z-index: 5;
+    //     background-color: $bgc;
+    //     padding: 5px;
+    //     text-align: center;
+    //     font-family: $main-font;
+    //     line-height: 30px;
+    //     padding-left: 10px;
+    // }
 
-    .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs
+    .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs, leave them here to be accessed by both divs
         position: relative;
         display: inline-block;
         font-size: 0.7rem;
@@ -88,7 +108,6 @@ html,body {
     color: $rating-color;
     }
 
-    // margin-left: -40px;
     #map {
         height: 100%;
         width: 100%;
@@ -100,7 +119,6 @@ html,body {
         height: 100%;
         overflow: scroll;
         margin-left: 0px;
-        // display: block;
 
         // restaurant filter
         #sort-option {
@@ -109,6 +127,9 @@ html,body {
             #sort {
                 text-align: center;
                 padding: 10px 0;
+            }
+            #sortMinStars {
+                margin-right: 20px;
             }
         }
 
@@ -128,7 +149,7 @@ html,body {
             cursor: pointer;
         }
     }
-    
+
     // restaurant details when clicked
     #box-showRestaurantDetails {
         .buttonReturnAndNewReview{

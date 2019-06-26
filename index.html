@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="logo-nbg.png" type="image/icon"/>
-    <title>Avis de restaurant</title>
+    <title>RestoHit : Avis de restaurant</title>
 <!--  bootstrap and css setup -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -110,6 +110,7 @@
 <div class="modal fade" id="addNewPlace" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+            <form action="#" id="form-addNewPlace">
             <div class="modal-header">
                 <h5 class="modal-title" id="addNewPlaceTitle">Ajouter un nouveau endroit</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -142,7 +143,7 @@
                         </div>
                     </div>
                 </div> 
-                <div class="form-row">
+                <div class="form-row" required>
                     <label for="labelRatingOptions" id="labelRatingOptions">Donnez votre avis </label>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
@@ -171,6 +172,7 @@
                 <button type="button" class="btn btn-secondary" id="closeAddingPlace" data-dismiss="modal">Fermer</button>
                 <button type="submit" class="btn btn-primary" id="confirmAddingPlace">Publier</button>
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -180,15 +182,15 @@
     src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <!-- <script src="script.js"></script>  -->
     <script type="text/javascript" src="listRestaurants.js"></script>
     <script src="script.js"></script> 
+    <script src="classInitMap.js"></script> 
+    <script src="classManageRestaurant.js"></script> 
+    <script src="classMyMap.js"></script> 
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A&callback=initMap&libraries=places">
     </script> 
-    <!-- <script src="https://maps.googleapis.com/maps/api/streetview?size=400x400&location=40.720032,-73.988354&fov=90&heading=235&pitch=10&key=AIzaSyAqxE4oHzIGt8Bg9Eb3yhjz6-arNbRbE5A"></script> -->
     <script src="https://kit.fontawesome.com/8b1a29674e.js"></script>
 </body>
 </html>

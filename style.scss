@@ -19,6 +19,8 @@ $googleMaps-color : #4285F4;
 header {
     display: flex;
     justify-content: center;
+    margin: 5px;
+
     .siteName {
         color: #6b717f;
         text-align: center;
@@ -111,7 +113,7 @@ html,body {
     #map {
         height: 100%;
         width: 100%;
-        margin-top: -8px;
+        // margin-top: -8px;
         margin-left: -15px;
     }
 

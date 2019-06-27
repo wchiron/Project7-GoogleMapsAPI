@@ -1,4 +1,4 @@
-class RestaurantManager { // showing restaurant content related
+class RestaurantManager { // managing restaurant content related functions
     constructor() { // things to reuse, 
         this.totalStar = 5; // to use when calculate average rating
     }

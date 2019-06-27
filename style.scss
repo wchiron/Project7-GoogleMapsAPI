@@ -4,8 +4,12 @@ $main-font: 'Raleway', sans-serif;
 $border-color: #c6d4df;
 $rating-color: #e7711b;
 $googleMaps-color : #4285F4;
-%style-shared {  // to show rating, address and comments
+%content-style-shared {  // to show rating and comments
     font-size: 13px;
+    margin-bottom: 5px;
+}
+%nameAdress-style-shared {
+    font-size: 15px;
     margin-bottom: 5px;
 }
 %textarea-style {
@@ -19,7 +23,7 @@ $googleMaps-color : #4285F4;
 header {
     display: flex;
     justify-content: center;
-    margin: 5px;
+    margin: 3px;
 
     .siteName {
         color: #6b717f;
@@ -28,7 +32,6 @@ header {
         padding-bottom: 10px;
         padding-top: 10px;
         font-family: $main-font;
-        // background-color: $bgc;
     }
     span {
         color: $rating-color;
@@ -36,8 +39,6 @@ header {
     }
     img{
         height: 69px;
-
-
     }
 }
 
@@ -67,19 +68,6 @@ html,body {
         line-height: 30px;
         padding-left: 10px;
     }
-    
-    // #pac-input {
-    //     position: absolute;
-    //     // top: 10px;
-    //     left: 50%;
-    //     z-index: 5;
-    //     background-color: $bgc;
-    //     padding: 5px;
-    //     text-align: center;
-    //     font-family: $main-font;
-    //     line-height: 30px;
-    //     padding-left: 10px;
-    // }
 
     .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs, leave them here to be accessed by both divs
         position: relative;
@@ -160,7 +148,6 @@ html,body {
             justify-content: space-between;
 
             .btn { // two buttons, return to previous and add an new rating
-                // display: inline-block;
                 padding-bottom: 1px;
                 padding-top: 1px;
                 font-size: 13px;
@@ -172,16 +159,18 @@ html,body {
         #showRestaurantDetails {
             .showName {
                 font-weight: bold;
-                font-size: 15px;
-                margin-bottom: 5px;
+                @extend %nameAdress-style-shared;
             }
-            .showRating, .showAdress, .showComment {
-                @extend %style-shared;
+            .showRating, .showComment {
+                @extend %content-style-shared;
+            }
+            .showAdress {
+                @extend %nameAdress-style-shared;
             }
         }
     }
 
-    // modal for adding new rating and comment to an existing restaurant
+    // modal for adding rating and comment to an existing restaurant
     .modal { 
         textarea {
             @extend %textarea-style;

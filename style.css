@@ -1,5 +1,9 @@
-.row #box-showRestaurantDetails #showRestaurantDetails .showRating, .row #box-showRestaurantDetails #showRestaurantDetails .showAdress, .row #box-showRestaurantDetails #showRestaurantDetails .showComment, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showRating, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showAdress, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showComment {
+.row #box-showRestaurantDetails #showRestaurantDetails .showRating, .row #box-showRestaurantDetails #showRestaurantDetails .showComment, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showRating, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showComment {
   font-size: 13px;
+  margin-bottom: 5px; }
+
+.row #box-showRestaurantDetails #showRestaurantDetails .showName, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showName, .row #box-showRestaurantDetails #showRestaurantDetails .showAdress, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showAdress {
+  font-size: 15px;
   margin-bottom: 5px; }
 
 .row .modal textarea, .container-fluid .modal textarea, #addNewPlace textarea {
@@ -11,7 +15,7 @@
 header {
   display: flex;
   justify-content: center;
-  margin: 5px; }
+  margin: 3px; }
   header .siteName {
     color: #6b717f;
     text-align: center;
@@ -100,9 +104,7 @@ html, body {
       margin-bottom: 10px;
       position: static; }
   .row #box-showRestaurantDetails #showRestaurantDetails .showName, .container-fluid #box-showRestaurantDetails #showRestaurantDetails .showName {
-    font-weight: bold;
-    font-size: 15px;
-    margin-bottom: 5px; }
+    font-weight: bold; }
   .row .modal .modal-title, .container-fluid .modal .modal-title {
     margin: auto;
     margin-left: 165px; }

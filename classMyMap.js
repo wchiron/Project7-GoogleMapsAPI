@@ -70,7 +70,7 @@ class MyMap {
         }
     }
 
-    // use user location to search nearby restaurants
+    // use user location to search nearby restaurants, function reusable for search this area function
     updateNearbyRestaurants(centerLocation) {
         var request = {
             location: centerLocation, // by passing the location as parameter, this function is reused when searchAreaButton button is clicked

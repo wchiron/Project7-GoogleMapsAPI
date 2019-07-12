@@ -47,8 +47,7 @@ html, body {
     padding: 5px;
     text-align: center;
     font-family: "Raleway", sans-serif;
-    line-height: 30px;
-    padding-left: 10px; }
+    line-height: 30px; }
   .row .stars-outer, .container-fluid .stars-outer {
     position: relative;
     display: inline-block;

@@ -79,7 +79,7 @@ class MyMap {
         };
         listRestaurants = []; // clear the result list everytime the center changes to only show restaurant of the newest search
         var service = new google.maps.places.PlacesService(this.map);
-        service.nearbySearch(request, this.nearbySearchCallback.bind(this)); // nearby search to get a list of restaurants with place id, using bind(this) to keep the this in the nearbySearchCallback, otherwise "this" is undefined.
+        service.nearbySearch(request, this.nearbySearchCallback.bind(this)); // nearby search to get a list of restaurants with place id, using bind(this) to keep the this in the nearbySearchCallback, otherwise "this" is undefined in the parameter
     }
 
     // first get the address and latlng of the restaurant, since there is no review included in the nearby search, use another function getDetails to get the review details
@@ -88,7 +88,7 @@ class MyMap {
             for (var i = 0; i < results.length; i++) {
                 var request = {
                     placeId: results[i].place_id,
-                    fields: ["formatted_address","reviews"]
+                    fields: ["formatted_address","reviews"],
                 };
     
                 var goolePlaceName = results[i].name;
@@ -103,8 +103,7 @@ class MyMap {
                 };
     
                 var service = new google.maps.places.PlacesService(map);
-                service.getDetails(request, this.detailSearchCallBack(integrateGoogleRestaurants)); //
-                // newMap.addMarker(results[i]);
+                service.getDetails(request, this.detailSearchCallBack(integrateGoogleRestaurants));
             }
         }
     }

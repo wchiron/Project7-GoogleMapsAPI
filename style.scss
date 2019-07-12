@@ -66,7 +66,7 @@ html,body {
         text-align: center;
         font-family: $main-font;
         line-height: 30px;
-        padding-left: 10px;
+        // padding-left: 10px;
     }
 
     .stars-outer {  // star style groups are not inside of any div group below because they are used from 2 different divs, leave them here to be accessed by both divs

@@ -91,7 +91,6 @@ function initMap() { // google maps init function called by the api script in th
 
     // research the restaurant everytime screen center changes
     $("#searchAreaButton").click(function() {
-        // var newCenter = map.getCenter();
         newMap.updateNearbyRestaurants(map.getCenter()); 
     });
     restaurantManager.sendListToHTML(listRestaurants); //show the list on the right of the screen when load

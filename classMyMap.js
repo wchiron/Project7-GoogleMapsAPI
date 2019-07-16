@@ -54,7 +54,7 @@ class MyMap {
                     map: this.map,
                     animation: google.maps.Animation.DROP,
                     title: 'Vous êtes là !',
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' // blut icon for the user position only       
+                    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png' // blue icon for the user position only       
                 });
     
                 this.map.setCenter(pos);
